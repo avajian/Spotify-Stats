@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Spotify options page</title>
+</head>
+<body>
+    <main id = "main">
+        <button id="back-to-home-button" onclick="window.location.href='/'">↩</button>
+        <h1>Welcome {{user_name}}</h1>
+
+        <div class="options-buttons">
+            <button id="top-songs-button" onclick="window.location.href='/top-songs-long_term'" onclick="setActiveButton(this)">Top Songs All Time</button>
+            <button id="top-songs-button" onclick="window.location.href='/top-songs-medium_term'" onclick="setActiveButton(this)">Top Songs 6 months</button>
+            <button id="top-songs-button" onclick="window.location.href='/top-songs-short_term'" onclick="setActiveButton(this)">Top Songs 1 month</button>
+        </div>
+
+        <div id="top-songs-display">
+            {% if tracks %}
+                <ul>
+                    {% for track in tracks %}
+                        <li>{{ loop.index }}. {{ track.name }} by {{ track.artist }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No top songs available.</p>
+            {% endif %}
+        </div>
+
+    </main>
+    <footer>
+        <button id="logout-button" onclick="window.location.href='/logout'">Logout</button>
+    </footer>
+</body>
+<script src="static/js/interactivity.js"></script>
+</html>

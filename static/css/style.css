@@ -1,0 +1,136 @@
+
+/* index page */
+
+/* position main content */
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  border: 3px solid green;
+  margin: 3%;
+}
+
+.content-container p {
+    margin-left: 12.5%;
+    margin-right: 12.5%;
+    margin-bottom: 10%;
+    text-align: center;
+    line-height: 20px;
+}
+
+#main h1 {
+    font-size: 40px;
+}
+
+/* style login button */
+#spotify-login, #about-button {
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 5px 7.5px #888888;
+    margin-bottom: 5%;
+    width: 200px;
+}
+
+footer {
+    text-align: center;
+}
+
+#spotify-login:hover, #about-button:hover, #logout-button:hover, #logout-button:hover{
+    background-color: lightgreen;
+    box-shadow: 5px 7.5px seagreen;
+}
+
+/* about */
+.text {
+    text-align: center;
+    margin: 5%;
+    line-height: 20px;
+}
+
+#back-to-home-button {
+    font-size: 2em;
+    background: none;
+    border: none;
+    padding: 0.5em;
+}
+
+#back-to-home-button:hover {
+    color: blue;
+}
+
+#about p a {
+    color: black;
+}
+
+#about p a:hover {
+    color: blue;
+}
+
+/* options */
+
+h1 {
+    text-align: center;
+}
+
+.options-buttons {
+    display: flex;
+    flex-direction: column;
+    margin-left: 3%;
+    margin-right: 3%;
+    align-items: center;
+}
+
+.options-buttons button, #logout-button {
+    font-size: 15px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 2.5px 5px #888888;
+    margin-bottom: 3%;
+    width: 300px;
+}
+
+#top-songs-button:hover, #top-songs-button.active {
+    background-color: lightgreen;
+}
+
+/* style song display */
+
+#top-songs-display ul {
+    list-style-type: none;
+}
+
+#top-songs-display li {
+    line-height: 1.5; 
+    border-bottom: 1px solid #ddd;
+    padding: 5px;
+    margin: 5px 0;
+}
+
+#top-songs-display li:last-child {
+    border-bottom: none;
+}
+
+#top-songs-display li:hover {
+    background-color: #f0f0f0;
+}
+
+#top-songs-display { 
+    color: #333;
+    padding: 10px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 7.5%;
+}
+
+#top-songs-display p {
+    font-size: 18px;
+    font-style: italic;
+    color: #777;
+    text-align: center;
+}
+

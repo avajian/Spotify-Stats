@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p>
+            1. figuring out authorization: https://www.youtube.com/watch?v=mBycigbJQzA
+                
+                I began following the spotify api tutorial with js to get the login working but none of the code worked for me 
+                so I ended up switching from js to python for backend to make things more simple. With python I was able 
+                to use 'spotipy' which made the entire process easier. I used this video and the official spotify developers code 
+                to help with getting the access token from spotify. I also took a look at actual receiptify since its an open
+                source project.
+                
+                ~ 5 hours, started over a few times
+            
+            2. Setting up: https://developer.spotify.com/documentation/web-api/reference/unfollow-artists-users 
+
+                I created more routes in my python file to lead to an index page and options page where the songs 
+                will be displayed. Both html pages, not styled yet. Also did some connecting between routes and 
+                researching the spotify developers api website.
+
+                ~ 2 hour
+
+            3. Wrote my calls to the spotify api for the top songs.
+
+                Spotipy makes it simple to call the top year(s), half years and 1 month top songs. However, I wanted to
+                display them on the page somehow. I tried to do it without refreshing the page using ajax calls, but I 
+                realized it was too complex and time consuming. So I decided to reload the page everytime a user chose 
+                a different time period. I made a html template so I could change the tracks shown
+                and display the users spotify username.
+
+                ~ 3 hours
+
+            4. Styling index, about & options pages
+
+                used box shadows, hovers, back arrows...etc
+
+                ~ 2 hours
+
+            5. available to other users
+                
+                Hid my client_id & client_secret by putting it in a .env file
+
+            6. accessibility
+
+
+            7. final changes
+
+    </p>
+</body>
+</html>

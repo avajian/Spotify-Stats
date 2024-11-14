@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="static/css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main id="main">
+        <section id = "about">
+            <button id="back-to-home-button" onclick="window.location.href='/'">↩</button>
+            <div class="about-container">
+                <h1>About</h1>
+                <div class="text">
+                    <h2>What is it?</h2>
+                    <p>MyTopSongs is a tool that uses spotfy's api to display a users' top 10 songs
+                        from the last month, 6 months and all-time. It was inspired by 'receiptify'
+                        a popular tool to display a user's spotify statistics in a reciept format.
+                        It can be found <a href="https://receiptify.herokuapp.com/">here.</a></p>
+                </div>
+
+                <div class="text">
+                    <h2>How does it work?</h2>
+                    <p>This project's code uses the open source spotify api to grab listening data
+                        from users and report their top songs. Unfortunately, with the data available,
+                        I'm limited to only the last month, half year and all time. I don't know how
+                        spotify stores any of this data.
+                    </p>
+                </div>
+
+                <div class="text">
+                    <h2>How was it made?</h2>
+                    <p>This project's code uses python for the backend, mainly using the tool 'spotipy'
+                        to simplify the data retrieving and authorization process. HTML templates to display
+                        the necessary data, CSS for styling and Javascript for interactivity. The code can
+                        be found <a href="https://receiptify.herokuapp.com/">here.</a>
+                    </p>
+                </div>
+
+                <div class="text">
+                    <h2>Next steps?</h2>
+                    <p>I'm hoping to expand it so any user is able to login and see their spotify statistics.
+                    </p>
+                </div>
+                <br>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
