@@ -39,19 +39,20 @@ h1, h2, h3, p, a {
     margin-right: 12.5%;
     margin-bottom: 10%;
     text-align: center;
-    line-height: 20px;
+    line-height: 32px;
+    font-size: 25px;
 }
 
 #main h1 {
-    font-size: 40px;
+    font-size: 45px;
 }
 
 #spotify-login, #about-button, #logout-button, #top-artists-button, #top-songs-button {
     font-size: 20px;
-    padding: 10px;
+    padding: 15px;
     border-radius: 10px;
     box-shadow: 5px 7.5px #e5eaf5;
-    margin-bottom: 5%;
+    margin-bottom: 7.5%;
     width: 200px;
 }
 
@@ -229,6 +230,12 @@ h1 {
 
     #spotify-login, #about-button, #logout-button {
         margin-bottom: 2.5%;
+        padding: 17.5px;
+        width: 250px;
+    }
+
+    .content-container p {
+        margin-bottom: 7.5%;
     }
 
     #login h1 {
@@ -278,8 +285,15 @@ h1 {
 @media (min-width: 1024px) {
 
     /* index */
+
     #spotify-login, #about-button, #logout-button {
         margin-bottom: 1.5%;
+        padding: 25px;
+        width: 300px;
+    }
+
+    .content-container p {
+        margin-bottom: 5%;
     }
 
     .index-buttons {
@@ -309,12 +323,15 @@ h1 {
         gap: 3%;
         margin: 7.5%;
         margin-bottom: 12.5%;
+        justify-content: center;
+        padding: 0; /* remove extra offsets */
     }
 
     #top-songs-display li, #top-artists-display li {
         border: 1px solid #ddd;
         padding: 10px;
         border-radius: 5px;
+        justify-content: center;
     }
 
     #top-songs-display h3, #top-artists-display h3 {
