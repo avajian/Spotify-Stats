@@ -3,13 +3,13 @@
 
 /* position main content */
 
+
 .content-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  border: 3px solid green;
   margin: 3%;
 }
 
@@ -93,44 +93,93 @@ h1 {
     width: 300px;
 }
 
-#top-songs-button:hover, #top-songs-button.active {
+#top-artists-button:hover, #top-artists-button.active, #top-songs-button:hover, #top-songs-button.active {
     background-color: lightgreen;
 }
 
+/* drop down styling */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+  
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+    width: 275px;
+}
+
+.dropdown-content a {
+    color: black;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    padding: 12px 16px;
+}
+
+.dropdown-content a:hover {
+    background-color: lightgray;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
 /* style song display */
 
-#top-songs-display ul {
-    list-style-type: none;
+#top-songs-display p, #top-songs-display h3, #top-artists-display p, #top-artists-display h3 {
+    margin: 5%;
 }
 
-#top-songs-display li {
+#top-songs-display li, #top-artists-display li {
     line-height: 1.5; 
-    border-bottom: 1px solid #ddd;
     padding: 5px;
     margin: 5px 0;
+    display: flex;
+    align-items: center;
 }
 
-#top-songs-display li:last-child {
-    border-bottom: none;
-}
-
-#top-songs-display li:hover {
-    background-color: #f0f0f0;
-}
-
-#top-songs-display { 
-    color: #333;
-    padding: 10px;
-    background-color: #f4f4f4;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+#top-songs-display, #top-artists-display { 
+    border: 1px black solid;
     margin: 7.5%;
 }
 
-#top-songs-display p {
-    font-size: 18px;
-    font-style: italic;
-    color: #777;
-    text-align: center;
+.track-name, .artist-name {
+    font-weight: bold;
 }
 
+.track-artist, .artist-genre {
+    font-weight: normal;
+    display: block;
+}
+
+.album-art, .artist-image {
+    width: 35%;
+    height: auto;
+    margin-right: 15px;
+}
+
+.track-details, .artist-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.track-number, .artist-number {
+    font-weight: bold;
+    font-size: 30px;
+    margin-right: 5%;
+    line-height: 1;
+}
+
+
+
+/* tablet version */
+
+
+
+/* desktop version */

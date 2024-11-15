@@ -12,22 +12,67 @@
         <h1>Welcome {{user_name}}</h1>
 
         <div class="options-buttons">
-            <button id="top-songs-button" onclick="window.location.href='/top-songs-long_term'" onclick="setActiveButton(this)">Top Songs All Time</button>
-            <button id="top-songs-button" onclick="window.location.href='/top-songs-medium_term'" onclick="setActiveButton(this)">Top Songs 6 months</button>
-            <button id="top-songs-button" onclick="window.location.href='/top-songs-short_term'" onclick="setActiveButton(this)">Top Songs 1 month</button>
+            <!-- Top Artists Button with dropdown -->
+            <div class="dropdown">
+                <button class="dropdown-btn" id="top-artists-button">Top Artists</button>
+                <div class="dropdown-content">
+                    <a href="/top-artists-long_term" id="top-artists-long_term" >All Time</a>
+                    <a href="/top-artists-medium_term" id="top-artists-medium_term">6 Months</a>
+                    <a href="/top-artists-short_term" id="top-artists-short_term">1 Month</a>
+                </div>
+            </div>
+        
+            <!-- Top Songs Button with dropdown -->
+            <div class="dropdown">
+                <button class="dropdown-btn" id="top-songs-button">Top Songs</button>
+                <div class="dropdown-content">
+                    <a href="/top-songs-long_term" id="top-songs-long_term">All Time</a>
+                    <a href="/top-songs-medium_term" id="top-songs-medium_term">6 Months</a>
+                    <a href="/top-songs-short_term" id="top-songs-short_term">1 Month</a>
+                </div>
+            </div>
         </div>
 
         <div id="top-songs-display">
+            <h3>Top Songs - {{time_range}}</h3>
             {% if tracks %}
                 <ul>
                     {% for track in tracks %}
-                        <li>{{ loop.index }}. {{ track.name }} by {{ track.artist }}</li>
+                        <li>
+                            <span class="track-number">{{ loop.index }}.</span>
+                            <img src="{{ track.album_art }}" alt="Album Art" class="album-art">
+                            <div class="track-details">
+                                <span class="track-name">{{ track.name }}</span>
+                                <span class="track-artist">{{ track.artist }}</span>
+                            </div>
+                        </li>
                     {% endfor %}
                 </ul>
             {% else %}
                 <p>No top songs available.</p>
             {% endif %}
         </div>
+
+        <div id="top-artists-display">
+            <h3>Top Artists - {{time_range}}</h3>
+            {% if artists %}
+                <ul>
+                    {% for artist in artists %}
+                        <li>
+                            <span class="artist-number">{{ loop.index }}</span>
+                            <img src="{{ artist.image }}" alt="Artist Image" class="artist-image">
+                            <div class="artist-details">
+                                <span class="artist-name">{{ artist.name }}</span>
+                                <span class="artist-genre">{{ artist.genre }}</span>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No top artists available.</p>
+            {% endif %}
+        </div>
+            
 
     </main>
     <footer>

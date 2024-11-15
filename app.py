@@ -38,7 +38,8 @@ def login():
 def logout():
     # remove the token info
     session.clear()
-     # Redirect the user to Spotify's logout URL
+
+    # Redirect the user to Spotify's logout URL
     spotify_logout_url = 'https://www.spotify.com/logout'
     return redirect(f"{spotify_logout_url}?redirect_uri={url_for('home', _external=True)}")
 
@@ -64,44 +65,91 @@ def options():
     return send_from_directory('templates', 'options.html')
 
 
+# Routes for Top Songs
 @app.route('/top-songs-long_term')
 def top_songs_year():
-    tracks = top_songs(time_range='long_term')  # 'long_term' for the past several years
-    return tracks
+    return top_songs('long_term')
 
 
 @app.route('/top-songs-medium_term')
 def top_songs_6_months():
-    tracks = top_songs(time_range='medium_term')  # 'medium_term' for the past 6 months
-    return tracks
+    return top_songs('medium_term')
 
 
 @app.route('/top-songs-short_term')
 def top_songs_1_month():
-    tracks = top_songs(time_range='short_term')  # 'short_term' for the past month
-    return tracks
+    return top_songs('short_term')
+
+
+# Routes for Top Artists
+@app.route('/top-artists-long_term')
+def top_artists_year():
+    return top_artists('long_term')
+
+
+@app.route('/top-artists-medium_term')
+def top_artists_6_months():
+    return top_artists('medium_term')
+
+
+@app.route('/top-artists-short_term')
+def top_artists_1_month():
+    return top_artists('short_term')
 
 
 @app.route('/top-songs-<time_range>')
 def top_songs(time_range):
+    tracks, user_name, time_range = get_top_items('songs', time_range)
+    time_range_display = map_terms(time_range)
+    return render_template('options.html', user_name=user_name, tracks=tracks, time_range=time_range_display)
+
+
+@app.route('/top-artists-<time_range>')
+def top_artists(time_range):
+    artists, user_name, time_range = get_top_items('artists', time_range)
+    time_range_display = map_terms(time_range)
+    return render_template('options.html', user_name=user_name, artists=artists, time_range=time_range_display)
+
+
+def get_top_items(type, time_range):
     sp = instance_creator()
 
-    # Get the top tracks for the specified time range
-    top_tracks = sp.current_user_top_tracks(limit=10, time_range=time_range)
-
-    tracks = []
-    for track in top_tracks['items']:
-        tracks.append({
-            'name': track['name'],
-            'artist': track['artists'][0]['name']
-        })
+    if type == 'songs':
+        # Get the top tracks for the specified time range
+        top_items = sp.current_user_top_tracks(limit=10, time_range=time_range)
+        items = []
+        for track in top_items['items']:
+            items.append({
+                'name': track['name'],
+                'artist': track['artists'][0]['name'],
+                'album_art': track['album']['images'][1]['url']  # Grab the second image size (medium size)
+            })
+    elif type == 'artists':
+        # Get the top artists for the specified time range
+        top_items = sp.current_user_top_artists(limit=10, time_range=time_range)
+        items = []
+        for artist in top_items['items']:
+            items.append({
+                'name': artist['name'],
+                'genre': artist['genres'][0] if artist['genres'] else 'N/A',  # Get the first genre, if available
+                'image': artist['images'][0]['url'] if artist['images'] else 'default_image_url.jpg'  # Get the first image (if available)
+            })
 
     user = sp.current_user()
     user_name = user['display_name']
 
-    return render_template('options.html', user_name=user_name, tracks=tracks)  # Pass tracks to template
+    return items, user_name, time_range
 
 
+def map_terms(time_range):
+    time_range_display = {
+        'long_term': 'All Time',
+        'medium_term': '6 Months',
+        'short_term': '1 Month'
+    }.get(time_range, 'All Time') #default
+
+    return time_range_display
+        
 
 def instance_creator():
     # get token and create spotipy instance
@@ -134,8 +182,6 @@ def get_token():
         token_info = spotify_oauth.refresh_access_token(token_info['refresh_token'])
 
     return token_info
-
-logging.basicConfig(level=logging.DEBUG)
 
 def create_spotify_oauth():
 
