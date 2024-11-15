@@ -1,0 +1,25 @@
+{
+	"folders": [
+		{
+			"name": "MyTopSongs",
+			"path": "."
+		},
+		{
+			"name": "static",
+			"path": "../si 339/final_project/static"
+		},
+		{
+			"name": "css",
+			"path": "../si 339/final_project/static/css"
+		},
+		{
+			"name": "js",
+			"path": "../si 339/final_project/static/js"
+		},
+		{
+			"name": "templates",
+			"path": "../si 339/final_project/templates"
+		}
+	],
+	"settings": {}
+}

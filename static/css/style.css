@@ -1,8 +1,22 @@
+/* theme styling */
+* {
+    background-color: #006BFF;
+}
+
+button {
+    background-color: #FFF100;
+}
 
 /* index page */
 
 /* position main content */
 
+.index-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+}
 
 .content-container {
   display: flex;
@@ -10,7 +24,6 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  margin: 3%;
 }
 
 .content-container p {
@@ -25,8 +38,7 @@
     font-size: 40px;
 }
 
-/* style login button */
-#spotify-login, #about-button {
+#spotify-login, #about-button, #logout-button {
     font-size: 20px;
     padding: 10px;
     border-radius: 10px;
@@ -39,7 +51,7 @@ footer {
     text-align: center;
 }
 
-#spotify-login:hover, #about-button:hover, #logout-button:hover, #logout-button:hover{
+#spotify-login:hover, #about-button:hover, #logout-button:hover {
     background-color: lightgreen;
     box-shadow: 5px 7.5px seagreen;
 }
@@ -84,7 +96,7 @@ h1 {
     align-items: center;
 }
 
-.options-buttons button, #logout-button {
+.options-buttons button {
     font-size: 15px;
     padding: 10px;
     border-radius: 10px;
@@ -136,6 +148,7 @@ h1 {
     margin: 5%;
 }
 
+
 #top-songs-display li, #top-artists-display li {
     line-height: 1.5; 
     padding: 5px;
@@ -151,6 +164,7 @@ h1 {
 
 .track-name, .artist-name {
     font-weight: bold;
+    font-size: 15px;
 }
 
 .track-artist, .artist-genre {
@@ -179,7 +193,120 @@ h1 {
 
 
 /* tablet version */
+@media (min-width: 768px) {
 
+    /* index */
+    .index-buttons {
+        flex-direction: row;
+        gap: 3%;
+    }
+
+    #spotify-login, #about-button, #logout-button {
+        margin-bottom: 2.5%;
+    }
+
+    #login h1 {
+        font-size: 45px;
+    }
+
+    #login p {
+        font-size: 25px;
+        line-height: 40px;
+        margin-left: 15%;
+        margin-right: 15%;
+    }
+    
+    /* options */
+    #top-songs-display, #top-artists-display { 
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    .track-name, .artist-name {
+        font-size: 25px;
+    }
+
+    .track-number, .artist-number {
+        font-size: 40px;
+    }
+
+    .options-buttons {
+        display: flex;
+        flex-direction: row;
+        gap: 2%;
+        justify-content: center;
+    }
+
+    #top-songs-display p, #top-songs-display h3, #top-artists-display p, #top-artists-display h3 {
+        font-size: 25px;
+    }
+
+    #back-to-home-button {
+        font-size: 3em;
+    }
+        
+}
 
 
 /* desktop version */
+@media (min-width: 1024px) {
+
+    /* index */
+    #spotify-login, #about-button, #logout-button {
+        margin-bottom: 1.5%;
+    }
+    
+    /* about */
+    #about .about-container {
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+
+    /* options */
+    #top-songs-display, #top-artists-display { 
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+
+    #top-songs-display ul, #top-artists-display ul {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2%;
+        margin: 7.5%;
+        margin-bottom: 12.5%;
+    }
+
+    #top-songs-display li, #top-artists-display li {
+        border: 1px solid #ddd;
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    #top-songs-display h3, #top-artists-display h3 {
+        font-size: 25px;
+    }
+
+    #top-songs-display p, #top-artists-display p {
+        font-size: 20px;
+    }
+    
+    #logout-button {
+        margin-bottom: 5%;
+    }
+
+    #login h1 {
+        font-size: 50px;
+    }
+
+    #login p {
+        font-size: 30px;
+        line-height: 40px;
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+}
+
+/* accessibility */
+@media (prefers-color-scheme: dark) {
+
+}
