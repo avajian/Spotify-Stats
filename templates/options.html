@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <a href="#main" class="skip">Skip to main content</a>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
@@ -16,9 +17,9 @@
             <div class="dropdown">
                 <button class="dropdown-btn" id="top-artists-button">Top Artists</button>
                 <div class="dropdown-content">
-                    <a href="/top-artists-long_term" id="top-artists-long_term" >All Time</a>
-                    <a href="/top-artists-medium_term" id="top-artists-medium_term">6 Months</a>
-                    <a href="/top-artists-short_term" id="top-artists-short_term">1 Month</a>
+                    <a href="/top-artists-long_term" id="top-artists-long_term" tabindex="0">All Time</a>
+                    <a href="/top-artists-medium_term" id="top-artists-medium_term" tabindex="0">6 Months</a>
+                    <a href="/top-artists-short_term" id="top-artists-short_term" tabindex="0">1 Month</a>
                 </div>
             </div>
         
@@ -26,9 +27,9 @@
             <div class="dropdown">
                 <button class="dropdown-btn" id="top-songs-button">Top Songs</button>
                 <div class="dropdown-content">
-                    <a href="/top-songs-long_term" id="top-songs-long_term">All Time</a>
-                    <a href="/top-songs-medium_term" id="top-songs-medium_term">6 Months</a>
-                    <a href="/top-songs-short_term" id="top-songs-short_term">1 Month</a>
+                    <a href="/top-songs-long_term" id="top-songs-long_term" tabindex="0">All Time</a>
+                    <a href="/top-songs-medium_term" id="top-songs-medium_term" tabindex="0">6 Months</a>
+                    <a href="/top-songs-short_term" id="top-songs-short_term" tabindex="0">1 Month</a>
                 </div>
             </div>
         </div>
@@ -79,5 +80,4 @@
         <button id="logout-button" onclick="window.location.href='/logout'">Logout</button>
     </footer>
 </body>
-<script src="static/js/interactivity.js"></script>
 </html>

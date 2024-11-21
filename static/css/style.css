@@ -15,8 +15,31 @@ h1, h2, h3, p, a {
     color:  black;
 }
 
-/* index page */
+/* 
+    skip to main content link
+    1. add 'skip-link' class to link
+    2. hide it
+    3. bring it into view when focused
+*/
 
+.skip {
+    background: #a0d2eb;
+    height: 30px;   
+    padding: 8px;
+    position: absolute;
+    transform: translateY(-700%);
+    transition: transform 0.3s;
+    color: black;
+    z-index: 1000;
+    right: 0;
+    margin-right: 5%;
+  }
+
+.skip:focus {
+    transform: translateY(0%);
+}
+
+/* index page */
 /* position main content */
 
 .index-buttons {
@@ -45,6 +68,14 @@ h1, h2, h3, p, a {
 
 #main h1 {
     font-size: 45px;
+}
+
+#spotify-login:focus-visible, 
+#about-button:focus-visible, 
+#logout-button:focus-visible, 
+#top-artists-button:focus-visible, 
+#top-songs-button:focus-visible {
+    border: 10px red solid;
 }
 
 #spotify-login, #about-button, #logout-button, #top-artists-button, #top-songs-button {
@@ -360,5 +391,31 @@ h1 {
 
 /* accessibility */
 @media (prefers-color-scheme: dark) {
-    
+    * {
+        background-color: #333; 
+    }
+
+    button {
+        background-color: #e5eaf5;
+        color: black;
+    }
+
+    h1, h2, h3, p, a {
+        color: white;
+    }
+
+    #back-to-home-button {
+        color: white;
+    }
+
+    .track-number, .track-name, .track-artist {
+        color: black;
+    }
 }
+
+@media (prefers-reduced-motion) {
+    .skip {
+        transition: none;
+    }
+}
+
