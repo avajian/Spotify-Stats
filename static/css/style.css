@@ -400,6 +400,10 @@ h1 {
         color: black;
     }
 
+    #about p a {
+        color:white;
+    }
+
     h1, h2, h3, p, a {
         color: white;
     }
