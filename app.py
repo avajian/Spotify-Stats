@@ -19,11 +19,11 @@ TOKEN_INFO = 'token_info'
 
 @app.route('/')
 def home():
-    return send_from_directory('', 'index.html')
+    return send_from_directory('templates', 'index.html')
 
 @app.route('/about')
 def about():
-    return send_from_directory('', 'about.html')
+    return send_from_directory('templates', 'about.html')
 
 
 @app.route('/login')

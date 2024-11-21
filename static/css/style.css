@@ -1,6 +1,6 @@
 /* theme styling */
 * {
-    background-color: #8458B3;
+    background-color: white;
 }
 
 button {
@@ -12,7 +12,7 @@ button a {
 }
 
 h1, h2, h3, p, a {
-    color:  #e5eaf5;
+    color:  black;
 }
 
 /* index page */
@@ -82,7 +82,7 @@ footer {
     background: none;
     border: none;
     padding: 0.5em;
-    color: #e5eaf5;
+    color: black;
 }
 
 #back-to-home-button:hover {
@@ -90,7 +90,7 @@ footer {
 }
 
 #about p a {
-    color:  #e5eaf5;
+    color: black;
 }
 
 #about p a:hover {
